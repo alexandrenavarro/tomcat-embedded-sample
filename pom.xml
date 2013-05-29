@@ -106,6 +106,7 @@
 					</daemons>
 				</configuration>
 				<executions>
+				
 					<execution>
 						<id>assemble</id>
 						<phase>package</phase>
