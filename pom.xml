@@ -80,6 +80,13 @@
 		<!--dependency> <groupId>org.hyperic</groupId> <artifactId>sigar</artifactId> 
 			<version>1.6.5.132</version> </dependency -->
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -178,6 +185,69 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.14.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>unix</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>start-third-parties</id>
+								<phase>pre-integration-test</phase>
+								<configuration>
+									<target>
+										<exec executable="sh" spawn="true">
+											<arg
+												value="${basedir}/target/tomcat-embedded-sample/bin/tomcat-embedded-sample-start.sh" />
+										</exec>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-third-parties</id>
+								<phase>post-integration-test</phase>
+								<configuration>
+									<target>
+										<exec executable="sh" spawn="false">
+											<arg
+												value="${basedir}/target/tomcat-embedded-sample/bin/tomcat-embedded-sample-stop.sh" />
+										</exec>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
