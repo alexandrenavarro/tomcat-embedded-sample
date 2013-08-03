@@ -19,6 +19,16 @@ public final class AppStopper {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(AppStopper.class);
 
+    
+    /**
+     * Constructor.
+     *
+     */
+    private AppStopper() {
+        super();
+    }
+
+
     /**
      * main.
      * 

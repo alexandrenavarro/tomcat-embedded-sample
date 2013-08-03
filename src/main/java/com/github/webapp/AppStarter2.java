@@ -42,6 +42,20 @@ public final class AppStarter2 {
      */
     static final String APP_PID = "app.pid";
 
+    
+    
+    /**
+     * Constructor.
+     *
+     */
+    private AppStarter2() {
+        // TODO Auto-generated constructor stub
+        super();
+        
+    }
+
+
+
     /**
      * main.
      * 

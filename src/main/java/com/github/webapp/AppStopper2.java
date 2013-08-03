@@ -24,7 +24,19 @@ public final class AppStopper2 {
     /**
      * OS
      */
-    private static String OS = System.getProperty("os.name").toLowerCase();
+    private static final String OS = System.getProperty("os.name").toLowerCase();
+
+    
+    
+    /**
+     * Constructor.
+     *
+     */
+    private AppStopper2() {
+        super();
+    }
+
+
 
     /**
      * main.

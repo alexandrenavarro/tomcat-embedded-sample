@@ -54,6 +54,18 @@ public final class AppStarter {
      */
     static final String SLASH = "/";
 
+    
+    
+    /**
+     * Constructor.
+     *
+     */
+    private AppStarter() {
+        super();
+    }
+
+
+
     /**
      * main.
      * 
@@ -118,8 +130,6 @@ public final class AppStarter {
             // Wait for a shutdown request and all shutdown listeners to complete
             shutdownHandler.waitForShutdown();
 
-            // Not need because above
-            // tomcat.getServer().await();
 
         } catch (LifecycleException exception) {
             LOGGER.error("Application can not be started because of a error when Tomcat tried to start (maybe port already used problem).", exception);
