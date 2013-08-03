@@ -145,7 +145,7 @@
 								<initialMemorySize>128m</initialMemorySize>
 								<maxMemorySize>256m</maxMemorySize>
 								<systemProperties>
-									<systemProperty>-server</systemProperty>
+									<systemProperty>-server -Dcom.sun.management.jmxremote.port=9005 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false</systemProperty>
 								</systemProperties>
 								<extraArguments>
 									<extraArgument>-Dtest=false</extraArgument>
