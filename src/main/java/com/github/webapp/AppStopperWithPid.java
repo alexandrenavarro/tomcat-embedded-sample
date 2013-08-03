@@ -14,12 +14,12 @@ import org.slf4j.LoggerFactory;
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStopper2 {
+public final class AppStopperWithPid {
 
     /**
      * LOGGER
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStopper2.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppStopperWithPid.class);
 
     /**
      * OS
@@ -32,7 +32,7 @@ public final class AppStopper2 {
      * Constructor.
      *
      */
-    private AppStopper2() {
+    private AppStopperWithPid() {
         super();
     }
 
@@ -47,7 +47,7 @@ public final class AppStopper2 {
         LOGGER.info("Application is stopping ...");
         // Stop Application by killing the process on linux
         if (OS.indexOf("linux") >= 0) {
-            final String appPidPath = System.getProperty(AppStarter2.APP_HOME) + File.separator + AppStarter2.BIN_DIR + File.separator + AppStarter2.APP_PID;
+            final String appPidPath = System.getProperty(AppStarterWithPid.APP_HOME) + File.separator + AppStarterWithPid.BIN_DIR + File.separator + AppStarterWithPid.APP_PID;
             final File appPidFile = new File(appPidPath);
             if (appPidFile.exists()) {
                 String command = "";
@@ -68,7 +68,7 @@ public final class AppStopper2 {
                     LOGGER.error("Application can't be stopped because to launch successfully this command " + command + ", e=", e);
                 }
             } else {
-                LOGGER.error("Application can't be stopped because we can't find the " + AppStarter2.APP_PID + " file.");
+                LOGGER.error("Application can't be stopped because we can't find the " + AppStarterWithPid.APP_PID + " file.");
             }
         } else {
             // TODO to manage Windows Os notably, use jmx or sigar lib or jsw (by preference order)

@@ -9,6 +9,7 @@
 		<tomcatVersion>7.0.42</tomcatVersion>
 		<slf4jVersion>1.7.5</slf4jVersion>
 		<logbackVersion>1.0.13</logbackVersion>
+		<configurationSourceDirectory>${basedir}/src/main/config/nothing</configurationSourceDirectory>
 	</properties>
 	<prerequisites>
 		<maven>3.0.0</maven>
@@ -137,6 +138,8 @@
 					<repositoryName>webapp/WEB-INF/lib</repositoryName>
 					<generateRepository>false</generateRepository>
 					<showConsoleWindow>false</showConsoleWindow>
+					<configurationSourceDirectory>${configurationSourceDirectory}</configurationSourceDirectory>
+					<copyConfigurationDirectory>true</copyConfigurationDirectory>
 					<programs>
 						<program>
 							<mainClass>com.github.webapp.AppStarter</mainClass>
@@ -145,7 +148,9 @@
 								<initialMemorySize>128m</initialMemorySize>
 								<maxMemorySize>256m</maxMemorySize>
 								<systemProperties>
-									<systemProperty>-server -Dcom.sun.management.jmxremote.port=9005 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false</systemProperty>
+									<systemProperty>com.sun.management.jmxremote.port=9005</systemProperty>
+									<systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
+									<systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
 								</systemProperties>
 								<extraArguments>
 									<extraArgument>-Dtest=false</extraArgument>
@@ -248,6 +253,30 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>dev</value>
+				</property>
+			</activation>
+			<properties>
+				<configurationSourceDirectory>${basedir}/src/main/config/dev</configurationSourceDirectory>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>uat</value>
+				</property>
+			</activation>
+			<properties>
+				<configurationSourceDirectory>${basedir}/src/main/config/uat</configurationSourceDirectory>
+			</properties>
 		</profile>
 	</profiles>
 </project>

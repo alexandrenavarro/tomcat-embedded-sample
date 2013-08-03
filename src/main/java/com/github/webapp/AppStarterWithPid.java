@@ -18,9 +18,9 @@ import org.slf4j.LoggerFactory;
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStarter2 {
+public final class AppStarterWithPid {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStarter2.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppStarterWithPid.class);
 
     /**
      * APPLICATION_NAME
@@ -48,7 +48,7 @@ public final class AppStarter2 {
      * Constructor.
      *
      */
-    private AppStarter2() {
+    private AppStarterWithPid() {
         // TODO Auto-generated constructor stub
         super();
         

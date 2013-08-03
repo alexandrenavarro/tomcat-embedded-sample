@@ -39,7 +39,7 @@
 			<outputDirectory>/webapp</outputDirectory>
 		</fileSet>
 		<fileSet>
-			<directory>${project.basedir}/src/main/assembly/conf</directory>
+			<directory>${project.build.directory}/${project.artifactId}/conf</directory>
 			<outputDirectory>/conf</outputDirectory>
 		</fileSet>
 		<fileSet>
