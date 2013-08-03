@@ -1,19 +1,31 @@
 <configuration>
 
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <!-- encoders are assigned the type
-         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
-    <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder>
-  </appender>
+	<logger name="org.apache" level="INFO" />
 
-  <logger name="org.apache" level="INFO"/>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${basedir}/logs/tomcat-embedded-sample.log</file>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
 
-  <!-- Strictly speaking, the level attribute is not necessary since -->
-  <!-- the level of the root level is set to DEBUG by default.       -->
-  <root level="DEBUG">          
-    <appender-ref ref="STDOUT" />
-  </root>  
-  
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
+			by default -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+
+	<root level="debug">
+		<appender-ref ref="FILE" />
+	</root>
+
+	<logger name="com.github.webapp.AppStarter" level="TRACE">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
 </configuration>
