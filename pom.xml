@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
-		<tomcatVersion>7.0.40</tomcatVersion>
+		<tomcatVersion>7.0.42</tomcatVersion>
 		<slf4jVersion>1.7.5</slf4jVersion>
 		<logbackVersion>1.0.13</logbackVersion>
 	</properties>
@@ -188,7 +188,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.14.1</version>
+				<version>2.15</version>
 				<executions>
 					<execution>
 						<goals>
@@ -212,7 +212,7 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.6</version>
+						<version>1.7</version>
 						<executions>
 							<execution>
 								<id>start-third-parties</id>
@@ -221,7 +221,7 @@
 									<target>
 										<exec executable="sh" spawn="true">
 											<arg
-												value="${basedir}/target/tomcat-embedded-sample/bin/tomcat-embedded-sample-start.sh" />
+												value="${basedir}/target/${project.artifactId}/bin/${project.artifactId}-start.sh" />
 										</exec>
 									</target>
 								</configuration>
@@ -236,7 +236,7 @@
 									<target>
 										<exec executable="sh" spawn="false">
 											<arg
-												value="${basedir}/target/tomcat-embedded-sample/bin/tomcat-embedded-sample-stop.sh" />
+												value="${basedir}/target/${project.artifactId}/bin/${project.artifactId}-stop.sh" />
 										</exec>
 									</target>
 								</configuration>
