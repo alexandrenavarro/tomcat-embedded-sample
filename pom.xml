@@ -34,6 +34,13 @@
 			<artifactId>tomcat-embed-logging-log4j</artifactId>
 			<version>${tomcatVersion}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina-jmx-remote</artifactId>
+			<version>${tomcatVersion}</version>
+		</dependency>
+
+
 		<!--dependency> <groupId>org.apache.tomcat</groupId> <artifactId>tomcat-jasper</artifactId> 
 			<version>${tomcatVersion}</version> </dependency> <dependency> <groupId>org.apache.tomcat</groupId> 
 			<artifactId>tomcat-jasper-el</artifactId> <version>${tomcatVersion}</version> 

@@ -7,6 +7,7 @@ import java.util.Properties;
 import javax.servlet.ServletException;
 
 import org.apache.catalina.LifecycleException;
+import org.apache.catalina.mbeans.JmxRemoteLifecycleListener;
 import org.apache.catalina.startup.Tomcat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -101,6 +102,12 @@ public final class AppStarter {
             final Tomcat tomcat = new Tomcat();
             tomcat.setPort(port);
             tomcat.addWebapp(SLASH + APP_NAME, webappLocation);
+            
+            JmxRemoteLifecycleListener jmxRemoteLifecycleListener = new JmxRemoteLifecycleListener();
+            jmxRemoteLifecycleListener.setRmiRegistryPortPlatform(9006);
+            jmxRemoteLifecycleListener.setRmiServerPortPlatform(9007);
+            tomcat.getEngine().addLifecycleListener(jmxRemoteLifecycleListener);
+            
             tomcat.start();
             
             // Set Shutdown Hook
