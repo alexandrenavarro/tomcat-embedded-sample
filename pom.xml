@@ -11,9 +11,29 @@
 		<logbackVersion>1.0.13</logbackVersion>
 		<configurationSourceDirectory>${basedir}/src/main/config/nothing</configurationSourceDirectory>
 	</properties>
+	<scm>
+		<connection>scm:git:git://github.com/alexandrenavarro/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git://github.com/alexandrenavarro/${project.artifactId}.git</developerConnection>
+	</scm>
 	<prerequisites>
 		<maven>3.0.0</maven>
 	</prerequisites>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>localReleaseRepository</id>
+			<name>localReleaseRepository</name>
+			<url>file:/home/anavarro/repository/</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>localSnapshotRepository</id>
+			<name>localSnapshotRepository</name>
+			<url>file:/home/anavarro/repository/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<!-- sigar repo -->
 	<!--repositories> <repository> <id>jboss-thirdparty</id> <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-uploads</url> 
 		</repository> </repositories -->
@@ -233,8 +253,7 @@
 								<configuration>
 									<target>
 										<exec executable="sh" spawn="true">
-											<arg
-												value="${basedir}/target/${project.artifactId}/bin/startup.sh" />
+											<arg value="${basedir}/target/${project.artifactId}/bin/startup.sh" />
 										</exec>
 									</target>
 								</configuration>
