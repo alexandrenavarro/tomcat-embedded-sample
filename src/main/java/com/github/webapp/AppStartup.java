@@ -16,14 +16,14 @@ import com.googlecode.shutdownlistener.ShutdownHandler;
 import com.googlecode.shutdownlistener.ShutdownListener;
 
 /**
- * <p>AppStarter. </p>
+ * <p>AppStartup. </p>
  * 
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStarter {
+public final class AppStartup {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStarter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppStartup.class);
 
     /**
      * APPLICATION_NAME
@@ -61,7 +61,7 @@ public final class AppStarter {
      * Constructor.
      *
      */
-    private AppStarter() {
+    private AppStartup() {
         super();
     }
 
@@ -72,7 +72,7 @@ public final class AppStarter {
      * 
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(final String... args) {
         LOGGER.info("Application is starting ...");
         
         final long startTime = System.currentTimeMillis();

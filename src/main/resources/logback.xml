@@ -24,7 +24,11 @@
 		<appender-ref ref="FILE" />
 	</root>
 
-	<logger name="com.github.webapp.AppStarter" level="TRACE">
+	<logger name="com.github.webapp.AppStartup" level="INFO">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="com.github.webapp.AppShutdown" level="INFO">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

@@ -9,17 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <p>AppStopper. </p>
+ * <p>AppShutdownWithPid. </p>
  * 
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStopperWithPid {
+public final class AppShutdownWithPid {
 
     /**
      * LOGGER
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStopperWithPid.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppShutdownWithPid.class);
 
     /**
      * OS
@@ -32,7 +32,7 @@ public final class AppStopperWithPid {
      * Constructor.
      *
      */
-    private AppStopperWithPid() {
+    private AppShutdownWithPid() {
         super();
     }
 
@@ -43,11 +43,11 @@ public final class AppStopperWithPid {
      * 
      * @param args
      */
-    public static void main(final String[] args) {
+    public static void main(final String... args) {
         LOGGER.info("Application is stopping ...");
         // Stop Application by killing the process on linux
         if (OS.indexOf("linux") >= 0) {
-            final String appPidPath = System.getProperty(AppStarterWithPid.APP_HOME) + File.separator + AppStarterWithPid.BIN_DIR + File.separator + AppStarterWithPid.APP_PID;
+            final String appPidPath = System.getProperty(AppStartupWithPid.APP_HOME) + File.separator + AppStartupWithPid.BIN_DIR + File.separator + AppStartupWithPid.APP_PID;
             final File appPidFile = new File(appPidPath);
             if (appPidFile.exists()) {
                 String command = "";
@@ -68,7 +68,7 @@ public final class AppStopperWithPid {
                     LOGGER.error("Application can't be stopped because to launch successfully this command " + command + ", e=", e);
                 }
             } else {
-                LOGGER.error("Application can't be stopped because we can't find the " + AppStarterWithPid.APP_PID + " file.");
+                LOGGER.error("Application can't be stopped because we can't find the " + AppStartupWithPid.APP_PID + " file.");
             }
         } else {
             // TODO to manage Windows Os notably, use jmx or sigar lib or jsw (by preference order)

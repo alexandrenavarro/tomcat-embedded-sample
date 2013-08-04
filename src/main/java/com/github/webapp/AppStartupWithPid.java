@@ -13,14 +13,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <p>AppStarter. </p>
+ * <p>AppStartupWithPid. </p>
  * 
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStarterWithPid {
+public final class AppStartupWithPid {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStarterWithPid.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppStartupWithPid.class);
 
     /**
      * APPLICATION_NAME
@@ -48,7 +48,7 @@ public final class AppStarterWithPid {
      * Constructor.
      *
      */
-    private AppStarterWithPid() {
+    private AppStartupWithPid() {
         // TODO Auto-generated constructor stub
         super();
         
@@ -61,7 +61,7 @@ public final class AppStarterWithPid {
      * 
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String... args) {
         
         //TODO manage 2 start without stop
         //TODO manage launch in background

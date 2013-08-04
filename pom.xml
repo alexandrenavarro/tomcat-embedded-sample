@@ -34,6 +34,7 @@
 			<artifactId>tomcat-embed-logging-log4j</artifactId>
 			<version>${tomcatVersion}</version>
 		</dependency>
+		<!-- needed only if you want to fix the 2 ports of jmx notably for firewall -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-catalina-jmx-remote</artifactId>
@@ -149,8 +150,8 @@
 					<copyConfigurationDirectory>true</copyConfigurationDirectory>
 					<programs>
 						<program>
-							<mainClass>com.github.webapp.AppStarter</mainClass>
-							<name>${project.artifactId}-start</name>
+							<mainClass>com.github.webapp.AppStartup</mainClass>
+							<name>startup</name>
 							<jvmSettings>
 								<initialMemorySize>128m</initialMemorySize>
 								<maxMemorySize>256m</maxMemorySize>
@@ -165,8 +166,8 @@
 							</jvmSettings>
 						</program>
 						<program>
-							<mainClass>com.github.webapp.AppStopper</mainClass>
-							<name>${project.artifactId}-stop</name>
+							<mainClass>com.github.webapp.AppShutdown</mainClass>
+							<name>shutdown</name>
 						</program>
 					</programs>
 				</configuration>
@@ -233,7 +234,7 @@
 									<target>
 										<exec executable="sh" spawn="true">
 											<arg
-												value="${basedir}/target/${project.artifactId}/bin/${project.artifactId}-start.sh" />
+												value="${basedir}/target/${project.artifactId}/bin/startup.sh" />
 										</exec>
 									</target>
 								</configuration>
@@ -248,7 +249,7 @@
 									<target>
 										<exec executable="sh" spawn="false">
 											<arg
-												value="${basedir}/target/${project.artifactId}/bin/${project.artifactId}-stop.sh" />
+												value="${basedir}/target/${project.artifactId}/bin/shutdown.sh" />
 										</exec>
 									</target>
 								</configuration>

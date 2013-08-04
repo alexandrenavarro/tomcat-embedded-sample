@@ -7,24 +7,24 @@ import com.googlecode.shutdownlistener.ShutdownConfiguration;
 import com.googlecode.shutdownlistener.ShutdownUtility;
 
 /**
- * <p>AppStopper. </p>
+ * <p>AppShutdown. </p>
  * 
  * @author anavarro - Jun 1, 2013
  * 
  */
-public final class AppStopper {
+public final class AppShutdown {
 
     /**
      * LOGGER
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppStopper.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppShutdown.class);
 
     
     /**
      * Constructor.
      *
      */
-    private AppStopper() {
+    private AppShutdown() {
         super();
     }
 
@@ -36,11 +36,12 @@ public final class AppStopper {
      */
     public static void main(final String[] args) {
         try {
-            System.setProperty(AppStarter.SHUTDOWN_CONFIG, AppStarter.SLASH + AppStarter.APP_NAME + AppStarter.PROPERTIES_EXT);
+            LOGGER.info("Application is shutdowning ...");
+            System.setProperty(AppStartup.SHUTDOWN_CONFIG, AppStartup.SLASH + AppStartup.APP_NAME + AppStartup.PROPERTIES_EXT);
             ShutdownUtility.main(new String[] {ShutdownConfiguration.getInstance().getShutdownWaitCommand()});
-            LOGGER.info("Application stopped.");
+            LOGGER.info("Application shutdowned.");
         } catch (Exception e) {
-            LOGGER.error("Application can't be stopped, e=", e);
+            LOGGER.error("Application can't be shutdowned, e=", e);
         }
     }
 
