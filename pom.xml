@@ -11,8 +11,8 @@
 		<configurationSourceDirectory>${basedir}/src/main/config/nothing</configurationSourceDirectory>
 	</properties>
 	<scm>
-		<connection>scm:git:git://github.com/alexandrenavarro/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git://github.com/alexandrenavarro/${project.artifactId}.git</developerConnection>
+		<connection>scm:git:https://github.com/alexandrenavarro/tomcat-embedded-sample.git</connection>
+		<developerConnection>scm:git:https://github.com/alexandrenavarro/tomcat-embedded-sample.git</developerConnection>
 	</scm>
 	<prerequisites>
 		<maven>3.0.0</maven>
