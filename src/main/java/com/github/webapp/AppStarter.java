@@ -52,7 +52,7 @@ public final class AppStarter {
     
     /**
      * SLASH
-     */
+     */ 
     static final String SLASH = "/";
 
     
@@ -97,16 +97,20 @@ public final class AppStarter {
             final String webappLocation = new File(((appHomeDir != null) ? appHomeDir : "src" + File.separator + "main") + File.separator + "webapp")
                     .getAbsolutePath();
             
+            final String baseDir = ((appHomeDir != null) ? appHomeDir + File.separator +  "tmp" : "target");
+            
+            
             //TODO improve test 
             final int port = System.getProperty(HTTP_PORT) != null ? Integer.parseInt(System.getProperty(HTTP_PORT)) : 8080;
             final Tomcat tomcat = new Tomcat();
+            tomcat.setBaseDir(baseDir);
             tomcat.setPort(port);
             tomcat.addWebapp(SLASH + APP_NAME, webappLocation);
             
             JmxRemoteLifecycleListener jmxRemoteLifecycleListener = new JmxRemoteLifecycleListener();
             jmxRemoteLifecycleListener.setRmiRegistryPortPlatform(9006);
             jmxRemoteLifecycleListener.setRmiServerPortPlatform(9007);
-            tomcat.getEngine().addLifecycleListener(jmxRemoteLifecycleListener);
+            //tomcat.getEngine().addLifecycleListener(jmxRemoteLifecycleListener);
             
             tomcat.start();
             
