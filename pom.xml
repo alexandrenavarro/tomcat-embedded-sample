@@ -5,7 +5,7 @@
 	<version>0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
-		<tomcatVersion>7.0.42</tomcatVersion>
+		<tomcatVersion>8.0.0-RC1</tomcatVersion>
 		<slf4jVersion>1.7.5</slf4jVersion>
 		<logbackVersion>1.0.13</logbackVersion>
 		<configurationSourceDirectory>${basedir}/src/main/config/nothing</configurationSourceDirectory>
