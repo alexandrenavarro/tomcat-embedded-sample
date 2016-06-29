@@ -253,7 +253,8 @@
 								<extraArguments>
 									<extraArgument>-Dtest=false</extraArgument>
 									<extraArgument>`hostname|xargs</extraArgument>
-									<extraArgument>cat`</extraArgument>
+									<extraArgument>cat`</extraArgument
+									<!--   `if [ -f $HOSTNAME ] ; then hostname|xargs cat ; else echo "" ; fi`-->
 								</extraArguments>
 							</jvmSettings>
 						</program>
