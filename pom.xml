@@ -235,7 +235,7 @@
 					<repositoryLayout>flat</repositoryLayout>
 					<repositoryName>webapp/WEB-INF/lib</repositoryName>
 					<generateRepository>false</generateRepository>
-					<showConsoleWindow>false</showConsoleWindow>
+					<showConsoleWindow>true</showConsoleWindow>
 					<configurationSourceDirectory>${configurationSourceDirectory}</configurationSourceDirectory>
 					<copyConfigurationDirectory>true</copyConfigurationDirectory>
 					<programs>
@@ -243,8 +243,8 @@
 							<mainClass>com.github.webapp.AppStartup</mainClass>
 							<name>startup</name>
 							<jvmSettings>
-								<initialMemorySize>128m</initialMemorySize>
-								<maxMemorySize>256m</maxMemorySize>
+								<!--initialMemorySize>128m</initialMemorySize>
+								<maxMemorySize>256m</maxMemorySize-->
 								<systemProperties>
 									<systemProperty>com.sun.management.jmxremote.port=9005</systemProperty>
 									<systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
@@ -252,6 +252,8 @@
 								</systemProperties>
 								<extraArguments>
 									<extraArgument>-Dtest=false</extraArgument>
+									<extraArgument>`hostname|xargs</extraArgument>
+									<extraArgument>cat`</extraArgument>
 								</extraArguments>
 							</jvmSettings>
 						</program>

@@ -103,15 +103,15 @@ public final class AppStartup {
             
             
             //TODO improve test 
-            final int port = System.getProperty(HTTP_PORT) != null ? Integer.parseInt(System.getProperty(HTTP_PORT)) : 8080;
+            final int port = System.getProperty(HTTP_PORT) != null ? Integer.parseInt(System.getProperty(HTTP_PORT)) : 8081;
             final Tomcat tomcat = new Tomcat();
             tomcat.setBaseDir(baseDir);
             tomcat.setPort(port);
             tomcat.addWebapp(SLASH + APP_NAME, webappLocation);
             
-            JmxRemoteLifecycleListener jmxRemoteLifecycleListener = new JmxRemoteLifecycleListener();
-            jmxRemoteLifecycleListener.setRmiRegistryPortPlatform(9006);
-            jmxRemoteLifecycleListener.setRmiServerPortPlatform(9007);
+            //JmxRemoteLifecycleListener jmxRemoteLifecycleListener = new JmxRemoteLifecycleListener();
+            //jmxRemoteLifecycleListener.setRmiRegistryPortPlatform(9006);
+            //jmxRemoteLifecycleListener.setRmiServerPortPlatform(9007);
             //tomcat.getEngine().addLifecycleListener(jmxRemoteLifecycleListener);
             
             tomcat.start();
