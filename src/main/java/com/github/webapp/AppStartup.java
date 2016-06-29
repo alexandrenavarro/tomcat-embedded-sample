@@ -77,7 +77,7 @@ public final class AppStartup {
         
         final long startTime = System.currentTimeMillis();
         
-        System.setProperty("spring.profiles.active", "p1");
+        System.setProperty("spring.profiles.active", "p1,p2");
         
         // Load application properties 
         final Properties properties = new Properties();

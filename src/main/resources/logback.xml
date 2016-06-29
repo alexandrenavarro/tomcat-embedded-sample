@@ -15,6 +15,10 @@
 	<root level="debug">
 		<appender-ref ref="FILE" />
 	</root>
+	
+	<logger name="com.github.webapp" level="INFO">
+		<appender-ref ref="STDOUT" />
+	</logger>
 
 	<logger name="com.github.webapp.AppStartup" level="INFO">
 		<appender-ref ref="STDOUT" />

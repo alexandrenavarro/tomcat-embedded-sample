@@ -9,10 +9,15 @@
 	         org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 	      </param-value>
 	   </context-param>
+	   
 	   <context-param>
 	      <param-name>contextConfigLocation</param-name>
 	      <param-value>com.github.webapp.AppConfiguration</param-value>
 	   </context-param>
+  <context-param>
+    <param-name>contextInitializerClasses</param-name>
+    <param-value>com.github.webapp.PropertySourcesApplicationContextInitializer</param-value>
+  </context-param>
 	   <listener>
 	      <listener-class>
 	         org.springframework.web.context.ContextLoaderListener
